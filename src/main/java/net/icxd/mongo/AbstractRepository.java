@@ -8,7 +8,12 @@ import org.bson.Document;
 import java.lang.reflect.AccessFlag;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public abstract class AbstractRepository<T> {
   protected final MongoCollection<Document> collection;
@@ -58,6 +63,8 @@ public abstract class AbstractRepository<T> {
     Document document = new Document("uuid", uuid.toString());
     for (Field field : object.getClass().getDeclaredFields()) {
       if (field.accessFlags().contains(AccessFlag.STATIC)) continue;
+
+      System.out.println("Saving " + field.getName() + " (" + field.getType().getName() + ")");
 
       field.setAccessible(true);
       if (field.getType().accessFlags().contains(AccessFlag.ENUM)) {
