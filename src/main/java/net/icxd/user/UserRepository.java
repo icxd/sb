@@ -1,4 +1,7 @@
-package net.icxd.mongo;
+package net.icxd.user;
 
-public class UserRepository {
+import net.icxd.mongo.AbstractRepository;
+
+public class UserRepository extends AbstractRepository<User> {
+  public UserRepository() { super("users"); }
 }

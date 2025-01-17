@@ -4,7 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
-public class MongoCollection {
+public class MongoDB {
   private static final String CONNECTION_STRING = "mongodb://localhost:27017";
   private static final String DATABASE = "sb";
   private static MongoDatabase database;

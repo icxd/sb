@@ -1,0 +1,6 @@
+name: sb
+version: 1.0-SNAPSHOT
+main: net.icxd.Main
+author: icxd
+description: skyblock
+api-version: 1.13

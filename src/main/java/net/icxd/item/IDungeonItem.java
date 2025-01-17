@@ -1,2 +1,4 @@
-package net.icxd.item;public interface IDungeonItem {
+package net.icxd.item;
+
+public interface IDungeonItem {
 }

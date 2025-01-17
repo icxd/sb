@@ -1,11 +1,14 @@
 package net.icxd.command;
 
-import com.mojang.brigadier.context.CommandContext;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public interface ICommand {
-  void execute(CommandContext context);
+public abstract class AbstractCommand {
+  public abstract void execute(CommandContext context);
 
-  public static record CommandContext(CommandSender sender, String[] args) {
+  public record CommandContext(CommandSender sender, String[] args) {
+    public boolean isPlayer() {return sender instanceof Player;}
+    public Player player() {return (Player) sender;}
+    public String arg(int index) {return args[index];}
   }
 }
